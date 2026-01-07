@@ -45,7 +45,7 @@ html, body {
 <body>
 
 <video id="bg-video" playsinline muted loop preload="auto">
-    <source src="/assets/overly.mp4" type="video/mp4">
+    <source src="./assets/overly.mp4" type="video/mp4">
 </video>
 
 <div id="overlay">CLICK</div>
@@ -60,7 +60,7 @@ video.addEventListener('loadeddata', () => {
 
 overlay.addEventListener('click', () => {
     video.muted = false;
-    video.play();
+    video.play().catch(() => {});
     overlay.style.opacity = 0;
     setTimeout(() => {
         overlay.style.display = 'none';
