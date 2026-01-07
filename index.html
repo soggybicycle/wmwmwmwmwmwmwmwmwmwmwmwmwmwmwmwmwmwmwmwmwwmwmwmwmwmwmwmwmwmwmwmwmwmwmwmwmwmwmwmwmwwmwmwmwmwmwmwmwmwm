@@ -4,8 +4,6 @@
 <meta charset="UTF-8">
 <title>site</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
 <style>
 html, body {
     margin: 0;
@@ -14,19 +12,17 @@ html, body {
     height: 100%;
     background: black;
     overflow: hidden;
-    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    color: white;
 }
 
 #bg-video {
     position: fixed;
     inset: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    background: black;
     opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 0;
+    transition: opacity 0.3s ease;
 }
 
 #overlay {
@@ -36,34 +32,23 @@ html, body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 10vw;
-    font-weight: 800;
+    color: white;
+    font-size: 8vw;
+    font-weight: bold;
     cursor: pointer;
     z-index: 10;
-    transition: opacity 0.5s ease;
-}
-
-#label {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.2rem;
-    opacity: 0.75;
-    z-index: 1;
+    transition: opacity 0.4s ease;
 }
 </style>
 </head>
 
 <body>
 
-<video id="bg-video" playsinline muted loop>
-    <source src="assets/overly.mp4" type="video/mp4">
+<video id="bg-video" playsinline muted loop preload="auto">
+    <source src="/assets/overly.mp4" type="video/mp4">
 </video>
 
 <div id="overlay">CLICK</div>
-
-<div id="label">overly.mp4</div>
 
 <script>
 const video = document.getElementById('bg-video');
@@ -79,7 +64,7 @@ overlay.addEventListener('click', () => {
     overlay.style.opacity = 0;
     setTimeout(() => {
         overlay.style.display = 'none';
-    }, 500);
+    }, 400);
 });
 </script>
 
